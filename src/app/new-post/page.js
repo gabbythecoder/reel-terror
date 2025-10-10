@@ -28,7 +28,7 @@ export default async function NewPost() {
         `INSERT INTO posts (user_id, movie_id, thoughts, rating) VALUES ($1, $2, $3, $4)`,
         [user.id, formValues.movie_id, formValues.thoughts, formValues.rating]
       );
-      redirect("/posts");
+      return redirect("/posts");
     } catch (error) {
       console.error("Database failed to insert:", error);
     }
