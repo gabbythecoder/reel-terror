@@ -11,6 +11,7 @@ export default function Header() {
       <nav>
         <Link href={"/"}>HOME</Link>
         <Link href={"/posts"}>POSTS</Link>
+        <Link href={"/new-post"}>NEW POSTS</Link>
       </nav>
       <SignedIn>
         <CustomUserAvatar />

@@ -28,7 +28,7 @@ export default async function CustomUserAvatar() {
         src={avatarUrl}
         alt="User Avatar"
         width={48}
-        height={48}
+        height={55}
         className="w-12 h-12 rounded-full border-2 border-red-500"
       />
       <span className="text-white font-semibold">{user.firstName}</span>

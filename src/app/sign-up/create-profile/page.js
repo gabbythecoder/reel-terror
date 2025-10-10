@@ -30,7 +30,7 @@ export default async function CreateProfilePage() {
     };
     console.log(formValues);
 
-    db.query(
+    await db.query(
       `INSERT INTO user_profiles (clerk_id, first_name, last_name, bio, avatar) 
         VALUES ($1, $2, $3, $4, $5)`,
       [
