@@ -1,22 +1,9 @@
 import Link from "next/link";
+import CustomUserAvatar from "./CustomUserAvatar.jsx";
 
-import {
-  UserButton,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 
-import { currentUser } from "@clerk/nextjs/server";
-
-export default async function Header() {
-  const user = await currentUser();
-
-//   if (!user) {
-//     return <p>Not signed in</p>;
-//   }
-
+export default function Header() {
   return (
     <header>
       <h1>ReelTerror</h1>
@@ -26,8 +13,7 @@ export default async function Header() {
         <Link href={"/posts"}>POSTS</Link>
       </nav>
       <SignedIn>
-        <UserButton />
-        <p>Hello, {user?.firstName}!</p>
+        <CustomUserAvatar />
       </SignedIn>
 
       <SignedOut>

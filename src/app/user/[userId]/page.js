@@ -4,3 +4,11 @@
 // - auth() -> userId
 // - currentUser() -> other user info (there is a JSON object in your Clerk app for reference)
 // - render user's data and user's post
+
+export default function UserIdPage() {
+    return (
+        <div>
+            <h1>User Profile Page</h1>
+        </div>
+    )
+}

@@ -9,7 +9,7 @@
 import Image from "next/image";
 import ghostface from "@/../public/ghostface-avatar-image.jpg";
 import jason from "@/../public/jason-avatar-image.jpg";
-import michael from "@/../public/michael-myers-avatar-image.jpg";
+import michael from "@/../public/michaelmyers-avatar-image.jpg";
 
 import { db } from "@/utils/database-connection";
 import { currentUser } from "@clerk/nextjs/server";
