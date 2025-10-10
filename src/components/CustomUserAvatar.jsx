@@ -1,6 +1,7 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/utils/database-connection";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function CustomUserAvatar() {
   const user = await currentUser();
@@ -23,7 +24,10 @@ export default async function CustomUserAvatar() {
     : "/pumpkin-default-avatar-image.jpg";
 
   return (
+    //might need to change this later 
+    <Link href={`/user/${user.firstName}-${user.lastName}`}>
     <div className="flex items-center gap-2">
+      
       <Image
         src={avatarUrl}
         alt="User Avatar"
@@ -32,6 +36,8 @@ export default async function CustomUserAvatar() {
         className="w-12 h-12 rounded-full border-2 border-red-500"
       />
       <span className="text-white font-semibold">{user.firstName}</span>
+      
     </div>
+    </Link>
   );
 }
