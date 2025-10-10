@@ -1,0 +1,25 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f5f5f5;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+.nav-bar {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 0.5rem 0.6rem;
+    border: 2px solid transparent;
+    border-radius: 50px;
+}
+
+.nav-link:hover {
+    border: 2px solid red;
+    border-radius: 50px;
+}

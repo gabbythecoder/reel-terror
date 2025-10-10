@@ -12,7 +12,7 @@ export default async function PostsPage() {
   const allowedAvatars = ["ghostface", "jason", "michaelmyers"];
 
   return (
-    <div>
+    <div className="posts-container">
       <h1>Recent Posts</h1>
       <Link href={"/new-post"}>Create New Post</Link>
 

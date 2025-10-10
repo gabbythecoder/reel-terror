@@ -24,20 +24,18 @@ export default async function CustomUserAvatar() {
     : "/pumpkin-default-avatar-image.jpg";
 
   return (
-    //might need to change this later 
+    //might need to change this later
     <Link href={`/user/${user.firstName}-${user.lastName}`}>
-    <div className="flex items-center gap-2">
-      
-      <Image
-        src={avatarUrl}
-        alt="User Avatar"
-        width={48}
-        height={55}
-        className="w-12 h-12 rounded-full border-2 border-red-500"
-      />
-      <span className="text-white font-semibold">{user.firstName}</span>
-      
-    </div>
+      <div className="flex items-center gap-2">
+        <Image
+          src={avatarUrl}
+          alt="User Avatar"
+          width={48}
+          height={48}
+          className="w-12 h-12 rounded-full border-2 border-red-500"
+        />
+        <span className="text-white font-semibold">{user.firstName}</span>
+      </div>
     </Link>
   );
 }

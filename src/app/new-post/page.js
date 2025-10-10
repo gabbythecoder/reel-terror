@@ -35,12 +35,13 @@ export default async function NewPost() {
   }
 
   return (
-    <div>
-      <h1>Create A New Post</h1>
+    <div className="new-posts-form-container">
+      <h2>Create A New Post</h2>
 
-      <form action={handleSubmit}>
+      <form action={handleSubmit} className="new-posts-content">
+        <div className="form-group">
         <label htmlFor="movie_id">Movie:</label>
-        <select name="movie_id" id="movie_id">
+        <select name="movie_id" id="movie_id" className="input-select">
           <option value="">-- Choose a movie --</option>
           {movies.map((movie) => (
             <option key={movie.id} value={movie.id}>
@@ -48,17 +49,23 @@ export default async function NewPost() {
             </option>
           ))}
         </select>
+        </div>
 
+        <div className="form-group">
         <label htmlFor="thoughts">Thoughts:</label>
         <textarea
           type="text"
           name="thoughts"
           id="thoughts"
-          required
+          rows="4"
+          cols="10"
           placeholder="Add your thoughts here"
+          className="input-textarea"
+          required
         />
+        </div>
 
-        <fieldset>
+        <fieldset className="form-group rating-group">
           <legend>Rating:</legend>
 
           <input type="radio" name="rating" id="rating1" value="1" required />
@@ -77,10 +84,10 @@ export default async function NewPost() {
           <label htmlFor="rating5">5</label>
         </fieldset>
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit-button">Submit</button>
       </form>
 
-      <Link href={"/posts"}>Go Back</Link>
+      <Link href={"/posts"} className="go-back-button">Go Back</Link>
     </div>
   );
 }

@@ -30,3 +30,32 @@ body {
   flex: 1 0 auto;
   overflow: hidden;
 }
+
+/* === new posts page === */
+.new-posts-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  gap: 1rem;
+  margin: 3rem auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.new-posts-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-textarea {
+  resize: none;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+}
