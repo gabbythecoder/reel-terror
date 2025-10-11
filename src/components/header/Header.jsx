@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CustomUserAvatar from "../CustomUserAvatar.jsx";
+import CustomUserAvatar from "../customuseravatar/CustomUserAvatar.jsx";
 import Nav from "./Nav.jsx";
 import "./Header.css";
 import reelterror from "@/../public/reelterror-logo.png";
