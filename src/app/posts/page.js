@@ -32,7 +32,7 @@ export default async function PostsPage() {
                 width={100}
                 height={120}
               />
-              <h3>{post.movie_title}</h3>
+              <h3>{post.movie_title} ({post.year})</h3>
             </div>
 
             <div>
