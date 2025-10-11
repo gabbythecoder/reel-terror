@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background-colour: #1a1a1a;
-  --font-colour: #f5f5f5;
+  --background-colour: #f5f5f5;
+  --font-colour: #000;
+  --secondary-font-colour: #da0000;
+  --hover-colour: #da0000;
+  --hover-font-colour: #fff;
 }
 
 html, body {
@@ -11,13 +14,17 @@ html, body {
   overflow-x: hidden;
   height: 100%;
   margin: 0;
-  padding: 0;
 }
 
 body {
   background: var(--background-colour);
   color: var(--font-colour);
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url("/background-image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
 }
 
 .layout-container {
@@ -29,6 +36,32 @@ body {
 .main-content {
   flex: 1 0 auto;
   overflow: hidden;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* === home page === */
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 5rem auto;
+  padding: 1rem;
+}
+
+.homepage-welcome {
+  font-size: 2.3rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.homepage-logo {
+  width: 600px;
+  max-width: 90%;
+  height: auto;
 }
 
 /* === new posts page === */
@@ -37,12 +70,21 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 600px;
+  max-width: 550px;
   width: 100%;
   gap: 1rem;
-  margin: 3rem auto;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
   height: 100%;
-  box-sizing: border-box;
+  background-color: var(--background-colour);
+}
+
+.new-post-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+  color: var(--secondary-font-colour);
 }
 
 .new-posts-content {
@@ -51,11 +93,97 @@ body {
   gap: 1rem;
 }
 
+.input-select {
+  background-color: #e5e5e5;
+  text-align: center;
+  padding: 0.4rem;
+  border-radius: 12px;
+  width: 80%;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
 .input-textarea {
   resize: none;
   width: 100%;
   padding: 0.6rem;
   border-radius: 12px;
-  background-color: #f5f5f5;
-  color: #1a1a1a;
+  background-color: #e5e5e5;
+  color: var(--font-colour);
 }
+
+.form-fieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-group {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.rating-group label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("/reelterror-rating.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.radio-button {
+  display: none;
+}
+
+.radio-button:checked ~ label, .radio-button:checked ~ label ~ label {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.rating-group label:hover, .rating-group label:hover ~ label {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.form-buttons {
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.go-back-button {
+  padding: 0.5rem 1.2rem;
+}
+
+.go-back-button:hover {
+  text-decoration: underline;
+}
+
+.submit-button {
+  padding: 0.5rem 1.2rem;
+  background-color: var(--secondary-font-colour);
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+}
+
+.submit-button:hover {
+  background-color: #b30000;
+}
+
+    /* === media query new posts page === */
+    @media (max-width: 600px) {
+      .form-buttons {
+        justify-content: center;
+      }
+    }

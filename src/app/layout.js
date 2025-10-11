@@ -4,10 +4,10 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import Header from "@/components/header/Header";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer/Footer";
 
 const nunitoSans = Nunito_Sans({
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   style: ["normal", "italic"],
   subsets: ["latin"],
 });

@@ -43,11 +43,11 @@ export default async function NewPost() {
 
   return (
     <div className="new-posts-form-container">
-      <h2>Create A New Post</h2>
+      <h2 className="new-post-title">CREATE A POST</h2>
 
       <form action={handleSubmit} className="new-posts-content">
         <div className="form-group">
-          <label htmlFor="movie_id">Movie:</label>
+          <label htmlFor="movie_id"></label>
           <select name="movie_id" id="movie_id" className="input-select">
             <option value="">-- Choose a movie --</option>
             {movies.map((movie) => (
@@ -72,33 +72,78 @@ export default async function NewPost() {
           />
         </div>
 
-        <fieldset className="form-group rating-group">
+        <fieldset className="form-fieldset rating-group">
           <legend>Rating:</legend>
 
-          <input type="radio" name="rating" id="rating1" value="1" required />
-          <label htmlFor="rating1">1</label>
+          <input
+            hidden
+            type="radio"
+            name="rating"
+            id="rating5"
+            value="5"
+            className="radio-button"
+            required
+          />
+          <label htmlFor="rating5"></label>
 
-          <input type="radio" name="rating" id="rating2" value="2" required />
-          <label htmlFor="rating2">2</label>
+          <input
+            hidden
+            type="radio"
+            name="rating"
+            id="rating4"
+            value="4"
+            className="radio-button"
+            required
+          />
+          <label htmlFor="rating4"></label>
 
-          <input type="radio" name="rating" id="rating3" value="3" required />
-          <label htmlFor="rating3">3</label>
+          <input
+            hidden
+            type="radio"
+            name="rating"
+            id="rating3"
+            value="3"
+            className="radio-button"
+            required
+          />
+          <label htmlFor="rating3"></label>
 
-          <input type="radio" name="rating" id="rating4" value="4" required />
-          <label htmlFor="rating4">4</label>
+          <input
+            hidden
+            type="radio"
+            name="rating"
+            id="rating2"
+            value="2"
+            className="radio-button"
+            required
+          />
+          <label htmlFor="rating2"></label>
 
-          <input type="radio" name="rating" id="rating5" value="5" required />
-          <label htmlFor="rating5">5</label>
+          <input
+            hidden
+            type="radio"
+            name="rating"
+            id="rating1"
+            value="1"
+            className="radio-button"
+            required
+          />
+          <label htmlFor="rating1"></label>
         </fieldset>
 
-        <button type="submit" className="submit-button">
-          Submit
-        </button>
+        <div className="form-buttons">
+          <Link href={"/posts"} className="go-back-button">
+            Go Back
+          </Link>
+          <button type="submit" className="submit-button">
+            SUBMIT
+          </button>
+        </div>
       </form>
 
-      <Link href={"/posts"} className="go-back-button">
+      {/* <Link href={"/posts"} className="go-back-button">
         Go Back
-      </Link>
+      </Link> */}
     </div>
   );
 }

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import CustomUserAvatar from "../CustomUserAvatar.jsx";
+import Nav from "./Nav.jsx";
 import "./Header.css";
+import reelterror from "@/../public/reelterror-logo.png";
+import Image from "next/image";
 
 import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 
@@ -8,13 +11,15 @@ export default function Header() {
   return (
     <header>
       <div className="header-container">
-        <h1>ReelTerror</h1>
+        <Image 
+          src={reelterror}
+          alt="Reel Terror Logo"
+          placeholder="blur"
+          className="logo-image"
+        />
 
-        <nav className="nav-bar">
-          <Link href={"/"} className="nav-link">HOME</Link>
-          <Link href={"/posts"} className="nav-link">POSTS</Link>
-          <Link href={"/new-post"} className="nav-link">NEW POSTS</Link>
-        </nav>
+        <Nav />
+
         <SignedIn>
           <CustomUserAvatar />
         </SignedIn>
