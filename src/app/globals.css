@@ -112,6 +112,7 @@ body {
   border-radius: 12px;
   background-color: #e5e5e5;
   color: var(--font-colour);
+  font-size: 0.9rem;
 }
 
 .form-fieldset {
@@ -314,16 +315,6 @@ body {
 }
 
 /* === /user/[userId] page === */
-/* .user-profile-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
-} */
-
 .user-profile {
   display: flex;
   flex-direction: column;
@@ -369,4 +360,115 @@ body {
 
 .signout-button:hover {
   background-color: var(--hover-colour);
+}
+
+/* === /users/[userId] page - create profile === */
+.profile-form-container {
+  max-width: 650px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+
+.profile-form-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+  color: #fff;
+}
+
+.profile-form-content {
+  display: flex;
+  flex-direction: column; 
+  gap: 0.5rem;
+}
+
+.name-fields {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.name-fields input {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0.4rem;
+  margin-left: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.name-fields label, .bio-label {
+  color: #fff;
+}
+
+.bio-textarea {
+  resize: none;
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #fff;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.profile-fieldset {
+  border: none;
+  margin: 0.5rem 0;
+}
+
+.profile-legend {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.avatar-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.avatar-options img {
+  border-radius: 50%;
+}
+
+.avatar-options label {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: border 0.3s ease;
+  padding: 4px;
+}
+
+.avatar-options input:checked + label {
+  border-color: var(--secondary-font-colour);
+  background-color: rgba(218, 0, 0, 0.1);
+}
+
+.profile-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  background-color: var(--secondary-font-colour);
+  margin: 1rem auto;
+  cursor: pointer;
+  color: var(--hover-font-colour);
+}
+
+.profile-button:hover {
+  background-color: var(--hover-colour);
+}
+
+/* === media query /user/[userId] page === */
+@media (max-width: 500px) {
+  .name-fields {
+    flex-direction: column;
+  }
+
+  .profile-button {
+    font-size: 0.8rem;
+  }
 }

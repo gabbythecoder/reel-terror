@@ -1,11 +1,3 @@
-// todo -  want the user to create a profile using form to add a nickname, bio, etc..
-
-//when the user signs-up, Clerk creates a userId
-//the userId does not exist until the user has signed-up!
-//redirects -> use them to improve the user flow (use a diagram for help)
-//make sure Clerk redirects are in the .env file
-//once the user has created their profile, redirect them to either their personal profile page or the posts timeline
-
 import Image from "next/image";
 import ghostface from "@/../public/ghostface-avatar-image.jpg";
 import jason from "@/../public/jason-avatar-image.jpg";
@@ -45,71 +37,93 @@ export default async function CreateProfilePage() {
   }
 
   return (
-    <>
-      <h1>Create your profile!</h1>
-      <form action={handleSubmit}>
-        <input type="hidden" name="clerk_id" value={user.id} />
+    <section>
+      <div className="profile-form-container">
+        <h1 className="profile-form-title">CREATE YOUR PROFILE</h1>
+        <form action={handleSubmit} className="profile-form-content">
+          <input type="hidden" name="clerk_id" value={user.id} />
 
-        <label htmlFor="first_name">First Name:</label>
-        <input type="text" name="first_name" id="first_name" required />
-        <label htmlFor="last_name">Last Name:</label>
-        <input type="text" name="last_name" id="last_name" required />
-        <label htmlFor="bio">Bio:</label>
-        <textarea type="text" name="bio" id="bio" required />
+          <div className="name-fields">
+            <div>
+              <label htmlFor="first_name">FIRST NAME:</label>
+              <input type="text" name="first_name" id="first_name" required />
+            </div>
+            <div>
+              <label htmlFor="last_name">LAST NAME:</label>
+              <input type="text" name="last_name" id="last_name" required />
+            </div>
+          </div>
 
-        <fieldset>
-          <legend>Choose Your Avatar:</legend>
-          <input
-            type="radio"
-            name="avatar"
-            id="avatar-ghostface"
-            value="ghostface"
+          <label htmlFor="bio" className="bio-label">BIO:</label>
+          <textarea
+            type="text"
+            name="bio"
+            id="bio"
+            rows="3"
+            column="10"
             required
+            className="bio-textarea"
           />
-          <label htmlFor="avatar-ghostface">
-            <Image
-              src={ghostface}
-              alt="a photo of ghostface"
-              width={100}
-              height={100}
-            />
-          </label>
 
-          <input
-            type="radio"
-            name="avatar"
-            id="avatar-jason"
-            value="jason"
-            required
-          />
-          <label htmlFor="avatar-jason">
-            <Image
-              src={jason}
-              alt="a photo of jason voorhees"
-              width={100}
-              height={100}
-            />
-          </label>
+          <fieldset className="profile-fieldset">
+            <legend className="profile-legend">CHOOSE YOUR AVATAR</legend>
+            <div className="avatar-options">
+              <input
+                hidden
+                type="radio"
+                name="avatar"
+                id="avatar-ghostface"
+                value="ghostface"
+                required
+              />
+              <label htmlFor="avatar-ghostface">
+                <Image
+                  src={ghostface}
+                  alt="a photo of ghostface"
+                  width={100}
+                  height={100}
+                />
+              </label>
 
-          <input
-            type="radio"
-            name="avatar"
-            id="avatar-michael"
-            value="michaelmyers"
-            required
-          />
-          <label htmlFor="avatar-michael">
-            <Image
-              src={michael}
-              alt="a photo of michael myers"
-              width={100}
-              height={100}
-            />
-          </label>
-        </fieldset>
+              <input
+                hidden
+                type="radio"
+                name="avatar"
+                id="avatar-jason"
+                value="jason"
+                required
+              />
+              <label htmlFor="avatar-jason">
+                <Image
+                  src={jason}
+                  alt="a photo of jason voorhees"
+                  width={100}
+                  height={100}
+                />
+              </label>
 
-        <button type="submit">Create Profile</button>
-      </form>
-    </>
+              <input
+                hidden
+                type="radio"
+                name="avatar"
+                id="avatar-michael"
+                value="michaelmyers"
+                required
+              />
+              <label htmlFor="avatar-michael">
+                <Image
+                  src={michael}
+                  alt="a photo of michael myers"
+                  width={100}
+                  height={100}
+                />
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" className="profile-button">CREATE PROFILE</button>
+        </form>
+      </div>
+    </section>
   );
 }
