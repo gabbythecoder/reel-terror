@@ -194,13 +194,14 @@ body {
 
 /* === /posts page === */
 .post-wrapper {
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 1rem;
-  text-align: right;
+  text-align: right; 
 }
 
-.post-title {
+.post-title, .user-profile-title {
   text-align: center;
   margin: 1rem 0;
   font-size: 1.8rem;
@@ -208,7 +209,7 @@ body {
 }
 
 .create-post {
-  display: inline-block;
+  display: inline-flex;
   max-width: 900px;
   margin: 0.5rem auto;
   background-color: rgba(0, 0, 0, 0.7);
@@ -310,4 +311,62 @@ body {
   .post-container {
     flex-direction: column;
   }
+}
+
+/* === /user/[userId] page === */
+/* .user-profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+} */
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--background-colour);
+  border-radius: 12px;
+  max-width: 550px;
+}
+
+.user-profile img {
+  border-radius: 50%;
+}
+
+.user-bio {
+  text-align: center;
+}
+
+.my-posts-title {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.signout-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.signout-button {
+  background-color: var(--secondary-font-colour);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-top: 0.2rem;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.signout-button:hover {
+  background-color: var(--hover-colour);
 }
