@@ -4,11 +4,12 @@
   --background-colour: #f5f5f5;
   --font-colour: #000;
   --secondary-font-colour: #da0000;
-  --hover-colour: #da0000;
+  --hover-colour: #b30000;
   --hover-font-colour: #fff;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -64,7 +65,7 @@ body {
   height: auto;
 }
 
-/* === new posts page === */
+/* === /new-post page === */
 .new-posts-form-container {
   display: flex;
   flex-direction: column;
@@ -143,12 +144,14 @@ body {
   display: none;
 }
 
-.radio-button:checked ~ label, .radio-button:checked ~ label ~ label {
+.radio-button:checked ~ label,
+.radio-button:checked ~ label ~ label {
   opacity: 1;
   transform: scale(1.1);
 }
 
-.rating-group label:hover, .rating-group label:hover ~ label {
+.rating-group label:hover,
+.rating-group label:hover ~ label {
   opacity: 1;
   transform: scale(1.1);
 }
@@ -178,12 +181,133 @@ body {
 }
 
 .submit-button:hover {
-  background-color: #b30000;
+  background-color: var(--hover-colour);
 }
 
-    /* === media query new posts page === */
-    @media (max-width: 600px) {
-      .form-buttons {
-        justify-content: center;
-      }
-    }
+/* === media query /new-post page === */
+@media (max-width: 600px) {
+  .form-buttons {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+}
+
+/* === /posts page === */
+.post-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: right;
+}
+
+.post-title {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.create-post {
+  display: inline-block;
+  max-width: 900px;
+  margin: 0.5rem auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.75rem 1.25rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.create-post:hover {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.post-container {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem;
+  background-color: var(--background-colour);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+}
+
+/* === left side: poster + title === */
+.post-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  flex: 1;
+  max-width: 300px;
+}
+
+.movie-poster {
+  border-radius: 8px;
+}
+
+.movie-title {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* === right side: user info + content === */
+.post-right {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 0.5rem;
+  max-width: 500px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.user-name {
+  font-weight: 700;
+}
+
+.user-thoughts {
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.rating-icons {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
+.rating-icons img {
+  object-fit: contain;
+  display: block;
+  width: 25px;
+  height: auto;
+}
+
+/* === media query /posts page */
+@media (max-width: 600px) {
+  .post-title {
+    font-size: 1.5rem;
+  }
+
+  .create-post {
+    font-size: 0.7rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .post-container {
+    flex-direction: column;
+  }
+}

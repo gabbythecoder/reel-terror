@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { db } from "@/utils/database-connection";
 import Image from "next/image";
+import reelterrorRating from "@/../public/reelterror-rating.png";
 
 export default async function PostsPage() {
   const allPosts = await db.query(
@@ -12,9 +13,9 @@ export default async function PostsPage() {
   const allowedAvatars = ["ghostface", "jason", "michaelmyers"];
 
   return (
-    <div className="posts-container">
-      <h1>Recent Posts</h1>
-      <Link href={"/new-post"}>Create New Post</Link>
+    <div className="post-wrapper">
+      <h1 className="post-title">RECENT POSTS</h1>
+      <Link href={"/new-post"} className="create-post">CREATE NEW POST</Link>
 
       {posts.length === 0 && <p>No posts yet!</p>}
 
@@ -24,31 +25,49 @@ export default async function PostsPage() {
           : "pumpkin-default-avatar-image.jpg";
 
         return (
-          <div key={post.id}>
-            <div>
+          <div key={post.id} className="post-container">
+            <div className="post-left">
               <Image
                 src={post.poster_url}
                 alt={post.movie_title}
                 width={100}
                 height={120}
+                className="movie-poster"
               />
-              <h3>{post.movie_title} ({post.year})</h3>
+              <h3 className="movie-title">
+                {post.movie_title} ({post.year})
+              </h3>
             </div>
 
-            <div>
-              <Image
-                src={avatarPic}
-                alt={`${post.first_name} avatar`}
-                width={40}
-                height={40}
-              />
-              <p>
-                {post.first_name} {post.last_name}
-              </p>
-            </div>
+            <div className="post-right">
+              <div className="user-info">
+                <Image
+                  src={avatarPic}
+                  alt={`${post.first_name} avatar`}
+                  width={40}
+                  height={40}
+                  className="avatar"
+                />
+                <p className="user-name">
+                  {post.first_name} {post.last_name}
+                </p>
+              </div>
 
-            <p>{post.thoughts}</p>
-            <p>Rating: {post.rating}</p>
+              <p className="user-thoughts">{post.thoughts}</p>
+
+              <div className="rating-icons">
+                <p>Rating:</p>
+                {Array.from({ length: post.rating }).map((_, i) => {
+                  return (
+                    <Image
+                      key={i}
+                      src={reelterrorRating}
+                      alt="ReelTerror rating icon"
+                    />
+                  );
+                })}
+              </div>
+            </div>
           </div>
         );
       })}
