@@ -28,7 +28,7 @@ Overall, I found this project both challenging and complex. There were many feat
 
 For the Radix UI requirement, I implemented a tooltip that appears when users hover over their avatar in the header. It displays "View Profile", and clicking the icon takes them directly to their user page. While Radix's documentation wasn’t as straightforward as I’d hoped, some trial and error got it working.
 
-This assignment took significantly longer than I expected. Integrating Clerk, filtering posts to display only relevant user data, and making sure users could only delete their own content required a lot of thought and debugging. I initially planned to implement editing functionality too, but ran out of time. However, I did manage to add a delete feature — users can only delete their own posts.
+This assignment took significantly longer than I expected. Integrating Clerk, filtering posts to display only relevant user data, and making sure users could only delete their own content required a lot of thought and debugging. I initially planned to implement editing functionality too, but ran out of time. However, I did manage to add a delete feature — users can only delete their own posts in the /posts page.
 
 For styling, I mostly used a single global stylesheet (```globals.css```) for simplicity. I used Tailwind CSS where it made sense and added a few separate CSS files for individual components. 
 
