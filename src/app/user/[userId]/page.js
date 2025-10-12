@@ -37,14 +37,13 @@ export default async function UserIdPage() {
 
   return (
     <section>
-      
-        <div className="signout-container">
-          <SignOutButton>
-            <button className="signout-button">SIGN OUT</button>
-          </SignOutButton>
-        </div>
+      <div className="signout-container">
+        <SignOutButton>
+          <button className="signout-button">SIGN OUT</button>
+        </SignOutButton>
+      </div>
 
-        <div className="user-profile-container">
+      <div className="user-profile-container">
         <h1 className="user-profile-title">
           {profile.first_name}&apos;s Profile
         </h1>

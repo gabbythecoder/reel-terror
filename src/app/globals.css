@@ -196,15 +196,15 @@ body {
   margin-top: 1rem;
 }
 
-.go-back-button {
+.go-back-button, .cancel-link {
   padding: 0.5rem 1.2rem;
 }
 
-.go-back-button:hover {
+.go-back-button:hover, .cancel-link:hover {
   text-decoration: underline;
 }
 
-.submit-button {
+.submit-button, .delete-button {
   padding: 0.5rem 1.2rem;
   background-color: var(--secondary-font-colour);
   border-radius: 50px;
@@ -214,7 +214,7 @@ body {
   font-size: 0.9rem;
 }
 
-.submit-button:hover {
+.submit-button:hover, .delete-button:hover {
   background-color: var(--hover-colour);
 }
 
@@ -545,4 +545,31 @@ body {
 
 .safety-button:hover {
   background-color: var(--hover-colour);
+}
+
+/* === delete page === */
+.delete-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-colour);
+  max-width: 600px;
+  margin: 30vh auto;
+  padding: 2rem;
+  border-radius: 12px;
+  gap: 1rem;
+  text-align: center;
+}
+
+.delete-actions {
+  display: flex;
+  gap: 2rem;
+}
+
+/* === media query === */
+@media (max-width: 768px) {
+  .delete-container {
+    margin: 20vh auto;
+  }
 }

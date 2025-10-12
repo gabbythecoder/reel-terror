@@ -3,6 +3,8 @@ import { db } from "@/utils/database-connection";
 import Image from "next/image";
 import reelterrorRating from "@/../public/reelterror-rating.png";
 
+import { FaTrash } from "react-icons/fa6";
+
 export default async function PostsPage() {
   const allPosts = await db.query(
     `SELECT posts.id, posts.thoughts, posts.rating, user_profiles.first_name, user_profiles.last_name, user_profiles.avatar, movie_list.title AS movie_title, movie_list.year, movie_list.poster_url FROM posts JOIN user_profiles ON posts.user_id = user_profiles.clerk_id JOIN movie_list ON posts.movie_id = movie_list.id ORDER BY posts.id DESC`
@@ -15,7 +17,9 @@ export default async function PostsPage() {
   return (
     <div className="post-wrapper">
       <h1 className="post-title">RECENT POSTS</h1>
-      <Link href={"/new-post"} className="create-post">CREATE NEW POST</Link>
+      <Link href={"/new-post"} className="create-post">
+        CREATE NEW POST
+      </Link>
 
       {posts.length === 0 && <p>No posts yet!</p>}
 
@@ -66,6 +70,12 @@ export default async function PostsPage() {
                     />
                   );
                 })}
+              </div>
+
+              <div className="flex justify-end">
+                <Link href={`/posts/${post.id}/delete`}>
+                  <FaTrash className="text-red-600 w-5 h-5" />
+                </Link>
               </div>
             </div>
           </div>
