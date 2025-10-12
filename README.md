@@ -43,6 +43,12 @@ For the planning, I initially started with drawing up how I want my database sch
 <img src="./additional/initial-planning-database-table.png">
 </div>
 
+The mobile layout closely follows the original wireframe. The main adjustment I made was in the header, where I changed the ```flex-direction``` to ```column``` to ensure all elements displayed properly on smaller screens.
+
+<div align=center>
+<img src="./additional/wireframe-reelterror.png">
+</div>
+
 ## Errors or Bugs
 One issue I ran into during this assignment was on the ```/new-post``` page — specifically with the ```redirect()``` function not working after submitting a new post. When the form was submitted, the data was being saved correctly to the database, but the page wouldn’t navigate away from ```/new-post``` as expected. I added several ```console.log()``` statements to debug the flow and eventually discovered the problem: I had placed the ```redirect()``` call inside the ```try...catch``` block that handled the SQL insert. For some reason, Next.js didn't handle the redirect well in that context and kept throwing an error in the terminal. The fix was to move the ```redirect()``` call outside the ```try...catch``` block. Once I did that, the redirect worked as intended and the user was properly taken to the ```/posts``` page after submitting the form.
 
