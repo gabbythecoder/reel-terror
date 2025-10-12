@@ -28,7 +28,7 @@ export default async function NewPost() {
     }
 
     try {
-      const result = await db.query(
+      await db.query(
         `INSERT INTO posts (user_id, movie_id, thoughts, rating) VALUES ($1, $2, $3, $4)`,
         [user.id, formValues.movie_id, formValues.thoughts, formValues.rating]
       );
@@ -140,10 +140,6 @@ export default async function NewPost() {
           </button>
         </div>
       </form>
-
-      {/* <Link href={"/posts"} className="go-back-button">
-        Go Back
-      </Link> */}
     </div>
   );
 }

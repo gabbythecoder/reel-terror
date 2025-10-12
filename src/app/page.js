@@ -21,11 +21,14 @@ export default function HomePage() {
           good scare.
         </p>
 
-        <p>Ready to join the horror hive?</p>
-        <p>
-          <Link href={"/sign-up"}>SIGN UP</Link> to get started - or{" "}
-          <Link href={"/sign-in"}>SIGN IN</Link> if you&apos;re already one of us!
-        </p>
+        <div className="homepage-join">
+          <p>Ready to join the horror hive?</p>
+          <p>
+            <Link href={"/sign-up"} className="homepage-buttons">SIGN UP</Link> to get started - or{" "}
+            <Link href={"/sign-in"} className="homepage-buttons">SIGN IN</Link> if you&apos;re already one of
+            us!
+          </p>
+        </div>
       </div>
     </div>
   );

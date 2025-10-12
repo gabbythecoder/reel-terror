@@ -1,12 +1,23 @@
-// todo - create a sign-up page using your own components and clerk components
-
 import { SignUp } from "@clerk/nextjs";
 
 export default function SignUpPage() {
-    return (
-        <>
-            <h1>Sign Up!</h1>
-            <SignUp />
-        </>
-    )
+  return (
+    <section>
+      <div className="flex justify-center items-center mt-[3rem]">
+        <SignUp
+          appearance={{
+            variables: {
+              colorPrimary: "#da0000",
+              colorBackground: "#fff",
+              colorText: "#000",
+            },
+            elements: {
+              formButtonPrimary:
+                "bg-red-900 hover:bg-red-500 text-white font-semibold rounded px-12 py-2 transition-colors duration-200",
+            },
+          }}
+        />
+      </div>
+    </section>
+  );
 }

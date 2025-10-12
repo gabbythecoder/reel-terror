@@ -12,3 +12,16 @@
     font-size: 0.9rem;
     font-weight: 600;
 }
+
+.social-icons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* === media query === */
+@media (max-width: 400px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+}
