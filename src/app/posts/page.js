@@ -2,15 +2,19 @@ import Link from "next/link";
 import { db } from "@/utils/database-connection";
 import Image from "next/image";
 import reelterrorRating from "@/../public/reelterror-rating.png";
+import { currentUser } from "@clerk/nextjs/server";
 
 import { FaTrash } from "react-icons/fa6";
 
 export default async function PostsPage() {
+  const user = await currentUser();
+
   const allPosts = await db.query(
-    `SELECT posts.id, posts.thoughts, posts.rating, user_profiles.first_name, user_profiles.last_name, user_profiles.avatar, movie_list.title AS movie_title, movie_list.year, movie_list.poster_url FROM posts JOIN user_profiles ON posts.user_id = user_profiles.clerk_id JOIN movie_list ON posts.movie_id = movie_list.id ORDER BY posts.id DESC`
+    `SELECT posts.id, posts.user_id, posts.thoughts, posts.rating, user_profiles.first_name, user_profiles.last_name, user_profiles.avatar, movie_list.title AS movie_title, movie_list.year, movie_list.poster_url FROM posts JOIN user_profiles ON posts.user_id = user_profiles.clerk_id JOIN movie_list ON posts.movie_id = movie_list.id ORDER BY posts.id DESC`
   );
 
   const posts = allPosts.rows;
+  // console.log(posts);
 
   const allowedAvatars = ["ghostface", "jason", "michaelmyers"];
 
@@ -72,11 +76,14 @@ export default async function PostsPage() {
                 })}
               </div>
 
-              <div className="flex justify-end">
-                <Link href={`/posts/${post.id}/delete`}>
-                  <FaTrash className="text-red-600 w-5 h-5" />
-                </Link>
-              </div>
+              {/* conditionally rendering the delete button for logged-in user that matches their posts */}
+              {user && user.id === post.user_id && (
+                <div className="flex justify-end">
+                  <Link href={`/posts/${post.id}/delete`}>
+                    <FaTrash className="text-red-600 w-5 h-5" />
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         );

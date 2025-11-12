@@ -66,7 +66,7 @@ export default async function UserIdPage() {
         <div className="post-wrapper">
           <h2 className="my-posts-title">MY POSTS</h2>
           {posts.length === 0 ? (
-            <p>You haven&apos;t made any posts yet.</p>
+            <p className="text-center">You haven&apos;t made any posts yet.</p>
           ) : (
             posts.map((post) => (
               <div key={post.id} className="post-container">

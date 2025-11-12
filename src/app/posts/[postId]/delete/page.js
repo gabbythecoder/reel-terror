@@ -41,12 +41,12 @@ export default async function DeletePage({ params }) {
         <form action={handleDelete}>
           <input type="hidden" name="postId" value={postId} />
           <div className="delete-actions">
-          <Link href="/posts" className="cancel-link">
-            CANCEL
-          </Link>
-          <button type="submit" className="delete-button">
-            YES, DELETE
-          </button>
+            <Link href="/posts" className="cancel-link">
+              CANCEL
+            </Link>
+            <button type="submit" className="delete-button">
+              YES, DELETE
+            </button>
           </div>
         </form>
       </div>
